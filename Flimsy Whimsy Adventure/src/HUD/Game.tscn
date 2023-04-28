@@ -1,0 +1,143 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://src/HUD/Game.gd" type="Script" id=1]
+[ext_resource path="res://Font/BebasNeue-Regular.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/Main/Background1Red.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="InputEventAction" id=3]
+action = "option_one"
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
+
+[sub_resource type="InputEventAction" id=5]
+action = "option_two"
+
+[sub_resource type="ShortCut" id=6]
+shortcut = SubResource( 5 )
+
+[sub_resource type="InputEventAction" id=7]
+action = "option_three"
+
+[sub_resource type="ShortCut" id=8]
+shortcut = SubResource( 7 )
+
+[sub_resource type="InputEventAction" id=9]
+action = "option_four"
+
+[sub_resource type="ShortCut" id=10]
+shortcut = SubResource( 9 )
+
+[node name="Game" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameTextLabel" type="RichTextLabel" parent="."]
+margin_left = 170.0
+margin_top = 160.0
+margin_right = 640.0
+margin_bottom = 480.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Text will go here, it may be a lot. Up to three sentences, so I will emulate that by putting lots of text here. Lorem Ipsum factorum."
+
+[node name="OptionOneButton" type="Button" parent="."]
+margin_left = 10.0
+margin_top = 600.0
+margin_right = 385.0
+margin_bottom = 720.0
+custom_fonts/font = SubResource( 2 )
+shortcut = SubResource( 4 )
+text = "Option One : It May be Rather Long"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 260.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 2 )
+text = "Back to Menu"
+
+[node name="OptionTwoButton" type="Button" parent="."]
+margin_left = 410.0
+margin_top = 600.0
+margin_right = 789.0
+margin_bottom = 720.0
+custom_fonts/font = SubResource( 2 )
+shortcut = SubResource( 6 )
+text = "Option Two : It May be Rather Long"
+
+[node name="OptionThreeButton" type="Button" parent="."]
+margin_left = 10.0
+margin_top = 750.0
+margin_right = 385.0
+margin_bottom = 870.0
+rect_clip_content = true
+custom_fonts/font = SubResource( 2 )
+shortcut = SubResource( 8 )
+text = "Option three"
+
+[node name="OptionFourButton" type="Button" parent="."]
+margin_left = 410.0
+margin_top = 750.0
+margin_right = 785.0
+margin_bottom = 870.0
+custom_fonts/font = SubResource( 2 )
+shortcut = SubResource( 10 )
+text = "Option Four"
+
+[node name="TextBackgroundLayer" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="TextBackground" type="Panel" parent="TextBackgroundLayer"]
+margin_left = 160.0
+margin_top = 150.0
+margin_right = 650.0
+margin_bottom = 490.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DebugScene" type="Label" parent="."]
+margin_left = 720.0
+margin_top = 40.0
+margin_right = 770.0
+margin_bottom = 90.0
+
+[node name="DebugInv" type="Label" parent="."]
+margin_left = 720.0
+margin_top = 110.0
+margin_right = 770.0
+margin_bottom = 160.0
+text = "0"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="OptionOneButton" to="." method="_on_OptionOneButton_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="OptionTwoButton" to="." method="_on_OptionTwoButton_pressed"]
+[connection signal="pressed" from="OptionThreeButton" to="." method="_on_OptionThreeButton_pressed"]
+[connection signal="pressed" from="OptionFourButton" to="." method="_on_OptionFourButton_pressed"]
