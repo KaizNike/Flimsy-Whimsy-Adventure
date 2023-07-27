@@ -6,6 +6,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$GameNameLabel.grab_focus()
 	Automain.scene_change("mainmenu")
 	pass # Replace with function body.
 

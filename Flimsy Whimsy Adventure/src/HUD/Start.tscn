@@ -52,6 +52,9 @@ margin_right = 106.66
 margin_bottom = 169.147
 custom_fonts/font = SubResource( 2 )
 text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HelpButton" type="Button" parent="."]
 anchor_left = 0.5
