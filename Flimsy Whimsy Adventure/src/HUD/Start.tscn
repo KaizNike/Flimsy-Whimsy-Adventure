@@ -42,7 +42,6 @@ __meta__ = {
 }
 
 [node name="WelcomeLabel" type="Label" parent="."]
-visible = false
 modulate = Color( 0.0823529, 0.803922, 0.498039, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
@@ -134,7 +133,6 @@ __meta__ = {
 layer = -1
 
 [node name="GameNameBackground" type="Panel" parent="LabelBackground2"]
-visible = false
 modulate = Color( 0.0470588, 1, 0.0627451, 1 )
 anchor_top = 0.0255556
 anchor_bottom = 0.0255556
