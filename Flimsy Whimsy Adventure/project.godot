@@ -22,6 +22,8 @@ config/icon="res://src/Main/Background1Red.png"
 [autoload]
 
 Automain="*res://src/Autoload/Automain.tscn"
+TTS="*res://addons/godot-tts/TTS.gd"
+ScreenReader="*res://addons/godot-accessibility/ScreenReader.gd"
 
 [display]
 

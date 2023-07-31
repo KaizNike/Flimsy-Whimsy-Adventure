@@ -46,6 +46,7 @@ margin_left = 170.0
 margin_top = 160.0
 margin_right = 640.0
 margin_bottom = 480.0
+focus_mode = 2
 custom_fonts/normal_font = SubResource( 1 )
 text = "Text will go here, it may be a lot. Up to three sentences, so I will emulate that by putting lots of text here. Lorem Ipsum factorum."
 
@@ -120,6 +121,7 @@ margin_left = 720.0
 margin_top = 110.0
 margin_right = 770.0
 margin_bottom = 160.0
+focus_mode = 2
 text = "0"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -128,11 +130,11 @@ layer = -100
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 margin_right = 40.0
 margin_bottom = 40.0
+focus_mode = 2
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="pressed" from="OptionOneButton" to="." method="_on_OptionOneButton_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="OptionTwoButton" to="." method="_on_OptionTwoButton_pressed"]

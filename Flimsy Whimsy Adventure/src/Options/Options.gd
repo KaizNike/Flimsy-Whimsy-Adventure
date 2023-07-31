@@ -15,6 +15,7 @@ signal sound_off
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$BackButton.grab_focus()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,3 +57,10 @@ func _on_DebugCheck_toggled(button_pressed: bool) -> void:
 
 
 
+
+
+func _on_VoiceCheck_toggled(button_pressed):
+	TTS.muted = !TTS.muted
+	if TTS.muted == false:
+		TTS.speak("Voice returned.")
+	pass # Replace with function body.

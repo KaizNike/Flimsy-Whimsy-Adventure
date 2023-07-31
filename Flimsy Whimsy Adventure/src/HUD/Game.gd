@@ -34,6 +34,9 @@ func clear_text():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$BackButton.grab_focus()
+	TTS.stop()
+#	TTS.speak("You are playing a short adventure, if you'd like to contribute writings see the Github link. "+text+" option 1 "+option1+" option 2 "+option2+" option 3 "+option3+" option 4 "+option4)
 #	if Automain.debug == false:
 #		$DebugInv.visible = false
 #		$DebugScene.visible = false
@@ -133,6 +136,7 @@ func game():
 	# To hell
 	if scene == 102:
 		text = ""
+	TTS.speak(text+" option 1 "+option1+" option 2 "+option2+" option 3 "+option3+" option 4 "+option4)
 
 
 
