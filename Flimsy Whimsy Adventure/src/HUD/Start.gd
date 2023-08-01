@@ -10,6 +10,7 @@ func _ready() -> void:
 #	TTS.speak($WelcomeLabel.text)
 #	TTS.connect("utterance_end",self,"progress()")
 	$StartButton.grab_focus()
+	TTS.speak($WelcomeLabel.text+" start button.")
 	Automain.scene_change("mainmenu")
 	pass # Replace with function body.
 

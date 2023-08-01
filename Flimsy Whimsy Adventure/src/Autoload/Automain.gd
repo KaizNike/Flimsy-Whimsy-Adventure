@@ -2,7 +2,7 @@ extends Node
 
 var debug = false
 var sound = true
-var music = true
+var music = true setget music_change
 var gotoScene: int = 0
 var currentScene setget scene_change
 
@@ -19,6 +19,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func music_change(Bool:bool):
+	$elevator.stream_paused = !Bool
+
 
 func scene_change(new_scene):
 	if new_scene == "mainmenu":

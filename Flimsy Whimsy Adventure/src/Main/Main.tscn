@@ -26,4 +26,3 @@ layer = -3
 [node name="AnimatedSprite" parent="CanvasLayer2" instance=ExtResource( 3 )]
 position = Vector2( 98, 307 )
 z_index = -50
-frame = 6
