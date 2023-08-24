@@ -122,7 +122,18 @@ func game():
 		option1 = "I want to go on an adventure"
 		loops.pie += 1
 		init_text()
-		
+#		4, South, Castle
+	if scene == 9:
+		text = "On the way to the castle, you arrive at the castle market - Castle Town, it is bustling with merchants and commoners alike. There are some things for sale!"
+		option1 = "Continue to the Castle"
+		option2 = "Buy a laser rifle"
+		option3 = "Buy spaceship keys"
+		option4 = "Buy homemade pie"
+		init_text()
+#		10 laser
+#		11 keys
+#		12 pie again
+#		13 castle
 	# In heaven
 	if scene == 100:
 		text = "You arrive in the Heavens, now what?"
@@ -160,6 +171,11 @@ func _on_OptionTwoButton_pressed() -> void:
 	if scene == 1:
 		scene = 3
 		game()
+		return
+	if scene == 4:
+		scene = 9
+		game()
+		return
 
 
 func _on_OptionThreeButton_pressed() -> void:
@@ -167,6 +183,7 @@ func _on_OptionThreeButton_pressed() -> void:
 	if scene == 1:
 		scene = 4
 		game()
+		return
 
 
 func _on_OptionFourButton_pressed() -> void:
