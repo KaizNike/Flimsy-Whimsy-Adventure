@@ -4,12 +4,13 @@ extends Control
 # var a: int = 2
 # var b: String = "text"
 var scene_str = "0"
-var scene = 0
+export (int) var scene = 0
 var text: String = ""
 var option1: String = ""
 var option2: String = ""
 var option3: String = ""
 var option4: String = ""
+var optionDestinations := []
 var inv = []
 var inv_str: String = "[]"
 
@@ -20,10 +21,38 @@ func init_text():
 	$DebugScene.set_text(scene_str)
 	$DebugInv.set_text(inv_str)
 	$GameTextLabel.set_text(text)
-	$OptionOneButton.set_text(option1)
-	$OptionTwoButton.set_text(option2)
-	$OptionThreeButton.set_text(option3)
-	$OptionFourButton.set_text(option4)
+	
+	var textToRead := ""
+	textToRead += text
+	if option1:
+		$OptionOneButton.disabled = false
+		$OptionOneButton.set_text("1: " + option1)
+		textToRead += "Option 1: " + option1
+	else:
+		$OptionOneButton.disabled = true
+	if option2:
+		$OptionTwoButton.disabled = false
+		$OptionTwoButton.set_text("2: " + option2)
+		textToRead += "Option 2: " + option2
+	else:
+		$OptionTwoButton.disabled = true
+	if option3:
+		$OptionThreeButton.disabled = false
+		$OptionThreeButton.set_text("3: " + option3)
+		textToRead += "Option 3: " + option3
+	else:
+		$OptionThreeButton.disabled = true
+	if option4:
+		$OptionFourButton.disabled = false
+		$OptionFourButton.set_text("4: " + option4)
+		textToRead += "Option 4: " + option4
+	else:
+		$OptionFourButton.disabled = true
+#	$OptionTwoButton.set_text("2: " + option2)
+#	$OptionThreeButton.set_text("3: " + option3)
+#	$OptionFourButton.set_text("4: " + option4)
+#	TTS.speak(text+" option 1 "+option1+" option 2 "+option2+" option 3 "+option3+" option 4 "+option4)
+	TTS.speak(textToRead)
 	
 func clear_text():
 	text = ""
@@ -31,6 +60,7 @@ func clear_text():
 	option2 = ""
 	option3 = ""
 	option4 = ""
+	optionDestinations.clear()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -62,7 +92,8 @@ func game():
 		option2 = "Eat the pie"
 		option3 = "Give the pie away"
 		option4 = "Place pie on windowsill"
-		init_text()
+		optionDestinations = [2,3,4,5]
+#		init_text()
 		scene = 1
 	if scene == 2:
 #		scene_str = "2"
@@ -76,7 +107,7 @@ func game():
 		option2 = "Eat the pie in his face"
 		option3 = "Steal the goblin"
 		option4 = "Ask Directions"
-		init_text()
+#		init_text()
 	# You eat a pie
 	if scene == 3:
 #		scene_str = "3"
@@ -85,7 +116,7 @@ func game():
 		option2 = "Fight the goblin"
 		option3 = "Steal the goblin"
 		option4 = "Ask Directions"
-		init_text()
+#		init_text()
 	# You give the pie away
 	if scene == 4:
 #		scene_str = "4"
@@ -94,7 +125,8 @@ func game():
 		option2 = "Go South"
 		option3 = "Go West"
 		option4 = "Go East"
-		init_text()
+		optionDestinations = [-1,9]
+#		init_text()
 	# Place pie on windowsill
 	# op1 - Pie Loop
 	if scene == 5:
@@ -104,24 +136,31 @@ func game():
 #		option2 = ""
 #		option3 = ""
 #		option4 = ""
-		init_text()
+		optionDestinations = [6]
+#		init_text()
 	if scene == 6:
 		text = "How silly of me. Anyways, after admiring a well placed pie, you head off on a random direction."
 		option1 = "Go off"
-		init_text()
+		optionDestinations = [7]
+#		init_text()
 	# Exit Pie loop
 	if scene == 7:
 		text = "There is a fork in the path you just took..."
 		option1 = "Neither"
-		if loops.pie > 7:
+		optionDestinations = [8]
+		if loops.pie > 1:
+			text += "\nA stairway to heaven appears, rewarding you for your diligence."
 			option2 = "Go up, of course"
-		init_text()
+			optionDestinations.append(100)
+			print(optionDestinations)
+#		init_text()
 	# Pie loop grow
 	if scene == 8:
 		text = "You pick neither back and instead head back to the glorious pie on the windowsill."
 		option1 = "I want to go on an adventure"
 		loops.pie += 1
-		init_text()
+#		init_text()
+		optionDestinations = [6]
 #		4, South, Castle
 	if scene == 9:
 		text = "On the way to the castle, you arrive at the castle market - Castle Town, it is bustling with merchants and commoners alike. There are some things for sale!"
@@ -129,7 +168,7 @@ func game():
 		option2 = "Buy a laser rifle"
 		option3 = "Buy spaceship keys"
 		option4 = "Buy homemade pie"
-		init_text()
+#		init_text()
 #		10 laser
 #		11 keys
 #		12 pie again
@@ -141,13 +180,14 @@ func game():
 		option2 = "Slide into hell"
 		option3 = "Climb Olympus"
 		option4 = "Rise even higher"
+#		init_text()
 	# Visiting God
 	if scene == 101:
 		pass
 	# To hell
 	if scene == 102:
 		text = ""
-	TTS.speak(text+" option 1 "+option1+" option 2 "+option2+" option 3 "+option3+" option 4 "+option4)
+	init_text()
 
 
 
@@ -156,40 +196,52 @@ func _on_BackButton_pressed() -> void:
 
 
 func _on_OptionOneButton_pressed() -> void:
-	# Grab the pie
-	if scene == 1:
-		scene = 2
-		game()
-#	Not dead
-	elif scene == 5:
-		scene = 6
+#	# Grab the pie
+#	if scene == 1:
+#		scene = 2
+#		game()
+##	Not dead
+#	elif scene == 5:
+#		scene = 6
+#		game()
+	if optionDestinations.size() > 0:
+		scene = optionDestinations[0]
 		game()
 
 
 func _on_OptionTwoButton_pressed() -> void:
-	# "Eat the pie"
-	if scene == 1:
-		scene = 3
+#	# "Eat the pie"
+#	if scene == 1:
+#		scene = 3
+#		game()
+#		return
+#	if scene == 4:
+#		scene = 9
+#		game()
+#		return
+	if optionDestinations.size() > 1:
+		scene = optionDestinations[1]
 		game()
-		return
-	if scene == 4:
-		scene = 9
-		game()
-		return
 
 
 func _on_OptionThreeButton_pressed() -> void:
-	# Give the pie away
-	if scene == 1:
-		scene = 4
+#	# Give the pie away
+#	if scene == 1:
+#		scene = 4
+#		game()
+#		return
+	if optionDestinations.size() > 2:
+		scene = optionDestinations[2]
 		game()
-		return
 
 
 func _on_OptionFourButton_pressed() -> void:
-	# Place pie on windowsill
-	if scene == 1:
-		scene = 5
+#	# Place pie on windowsill
+#	if scene == 1:
+#		scene = 5
+#		game()
+	if optionDestinations.size() > 3:
+		scene = optionDestinations[3]
 		game()
 
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Options/Options.gd" type="Script" id=1]
 [ext_resource path="res://Font/BebasNeue-Regular.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/Resources/Baba_Neue_Theme.tres" type="Theme" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 90
@@ -58,15 +59,16 @@ __meta__ = {
 }
 
 [node name="MusicLabel" type="Label" parent="VBoxContainer"]
+visible = false
 margin_right = 121.0
 margin_bottom = 60.0
 custom_fonts/font = SubResource( 3 )
 text = "Music"
 
 [node name="MusicCheck" type="CheckButton" parent="VBoxContainer"]
-margin_top = 64.0
 margin_right = 121.0
-margin_bottom = 104.0
+margin_bottom = 40.0
+theme = ExtResource( 3 )
 pressed = true
 text = "Music"
 __meta__ = {
@@ -74,9 +76,10 @@ __meta__ = {
 }
 
 [node name="SoundLabel" type="Label" parent="VBoxContainer"]
-margin_top = 108.0
+visible = false
+margin_top = 44.0
 margin_right = 121.0
-margin_bottom = 168.0
+margin_bottom = 104.0
 focus_mode = 2
 custom_fonts/font = SubResource( 3 )
 text = "Sound"
@@ -85,9 +88,10 @@ __meta__ = {
 }
 
 [node name="SoundCheck" type="CheckButton" parent="VBoxContainer"]
-margin_top = 172.0
+margin_top = 44.0
 margin_right = 121.0
-margin_bottom = 212.0
+margin_bottom = 84.0
+theme = ExtResource( 3 )
 pressed = true
 text = "Sound"
 __meta__ = {
@@ -95,17 +99,19 @@ __meta__ = {
 }
 
 [node name="DebugLabel" type="Label" parent="VBoxContainer"]
-margin_top = 216.0
+visible = false
+margin_top = 88.0
 margin_right = 121.0
-margin_bottom = 276.0
+margin_bottom = 148.0
 focus_mode = 2
 custom_fonts/font = SubResource( 3 )
 text = "Debug"
 
 [node name="DebugCheck" type="CheckButton" parent="VBoxContainer"]
-margin_top = 280.0
+margin_top = 88.0
 margin_right = 121.0
-margin_bottom = 320.0
+margin_bottom = 128.0
+theme = ExtResource( 3 )
 pressed = true
 text = "Debug"
 __meta__ = {
@@ -113,18 +119,20 @@ __meta__ = {
 }
 
 [node name="VoiceLabel" type="Label" parent="VBoxContainer"]
-margin_top = 324.0
+visible = false
+margin_top = 132.0
 margin_right = 121.0
-margin_bottom = 384.0
+margin_bottom = 192.0
 rect_pivot_offset = Vector2( 238, -527 )
 focus_mode = 2
 custom_fonts/font = SubResource( 3 )
 text = "Voice"
 
 [node name="VoiceCheck" type="CheckButton" parent="VBoxContainer"]
-margin_top = 388.0
+margin_top = 132.0
 margin_right = 121.0
-margin_bottom = 428.0
+margin_bottom = 172.0
+theme = ExtResource( 3 )
 pressed = true
 text = "Voice"
 __meta__ = {
