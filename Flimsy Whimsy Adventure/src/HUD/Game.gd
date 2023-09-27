@@ -27,25 +27,25 @@ func init_text():
 	if option1:
 		$OptionOneButton.disabled = false
 		$OptionOneButton.set_text("1: " + option1)
-		textToRead += "Option 1: " + option1
+		textToRead += " \nOption 1: " + option1
 	else:
 		$OptionOneButton.disabled = true
 	if option2:
 		$OptionTwoButton.disabled = false
 		$OptionTwoButton.set_text("2: " + option2)
-		textToRead += "Option 2: " + option2
+		textToRead += " \nOption 2: " + option2
 	else:
 		$OptionTwoButton.disabled = true
 	if option3:
 		$OptionThreeButton.disabled = false
 		$OptionThreeButton.set_text("3: " + option3)
-		textToRead += "Option 3: " + option3
+		textToRead += " \nOption 3: " + option3
 	else:
 		$OptionThreeButton.disabled = true
 	if option4:
 		$OptionFourButton.disabled = false
 		$OptionFourButton.set_text("4: " + option4)
-		textToRead += "Option 4: " + option4
+		textToRead += " \nOption 4: " + option4
 	else:
 		$OptionFourButton.disabled = true
 #	$OptionTwoButton.set_text("2: " + option2)
